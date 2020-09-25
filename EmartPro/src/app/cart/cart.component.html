@@ -1,0 +1,106 @@
+<section class="ftco-counter img" id="section-counter">
+  <div class="container">
+    <div class="row d-flex">	
+           
+     <table class="table" style="border-spacing: 200px">
+      <tr>
+        <th>
+          <h2>
+            Cart Number
+          </h2>
+        </th>
+
+        <th>
+          <h2>
+            Product Name
+          </h2>
+        </th>
+
+        <th>
+          <h2>
+            Product Quantity
+          </h2>
+        </th>
+
+        <th>
+          <h2>
+            Total Amount
+          </h2>
+        </th>
+
+        <th>
+          <h2>
+            Want to use Points ?
+          </h2>
+        </th>
+        <th>
+          <h2>
+            Done Changes
+          </h2>
+        </th>
+        <th>
+          <h2>
+            Remove Order
+          </h2>
+        </th>
+
+      </tr>
+      <ng-container *ngFor="let cartdetail of cartlist">
+       <tr>
+          <td>
+          <h2>{{cartdetail.oid}}</h2>
+          </td>
+          <td>
+          <h2>
+            {{cartdetail.product.name}}
+          </h2>
+          </td>
+          <td class="qty">
+            <div class="qty-btn d-flex">
+                  <div class="quantity">
+                      
+                      <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity" [(ngModel)]='cartdetail.quantity'>
+                      
+                  </div>
+            </div>
+          </td>
+          <td>
+            <h2>
+              {{cartdetail.amount}}
+            </h2>
+          </td>
+          <td>
+            <h2>
+            
+            <div *ngIf="cartdetail.customer.primemember != true ; else uline" >
+              want to use points {{cartdetail.product.points}}
+            <input type="checkbox" id="use" value="true" [(ngModel)]='cartdetail.points'>
+            </div>
+            <ng-template #uline>
+              you have redeemed
+            </ng-template>
+          </h2>
+          </td>
+          <td>
+            <button name="Done" (click)="update(cartdetail)">Done</button>
+          </td>
+          <td>
+            <button name="Done" (click)="remove(cartdetail.oid)">Remove</button>
+          </td>
+        </tr>
+      </ng-container> 
+      </table> 
+         
+    </div>  
+  </div>
+  <table>
+ <tr>
+  <th>
+    <button [routerLink]="['']"> Shop More </button>
+  </th>
+   <th>
+    <button [routerLink]="['/invoice']"> Proceed To pay </button>
+  </th>
+  </tr>
+</table>
+</section>

@@ -1,0 +1,44 @@
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center pb-5">
+      <div class="col-md-12 heading-section text-center ftco-animate">
+        
+        <h2 class="mb-4" style="color: red;">Emart Presents</h2>
+        </div>
+    </div>
+
+    
+        <div class="row">
+    <ng-container *ngFor="let promotional of product">		
+      <div class="col-md-6 col-lg-3 ftco-animate">
+          <div class="project">
+            <div class="img">
+              <a [routerLink] = "['/productdetail',promotional.name]" class="nav-link"> <img src="{{promotional.image}}" class="img-fluid" alt="Colorlib Template"></a>
+            </div>
+            <div class="text">
+              <!-- <h3><a (click)="subcatDisp(cat)">{{promotional.name | uppercase}}</a></h3> -->
+              <h4><a [routerLink] = "['/productdetail',promotional.name]" class="nav-link">{{promotional.name | uppercase}}</a ></h4>
+            <h5>Price : {{promotional.price | currency :'INR'}} PrimePrice : {{promotional.primeprice | currency :'INR'}}</h5>
+            <h5>Points : {{promotional.points | currency :'INR'}}</h5>
+              <div class="star d-flex clearfix">
+                <div class="mr-auto float-left">
+                  <span class="ion-ios-star"></span>
+                  <span class="ion-ios-star"></span>
+                  <span class="ion-ios-star"></span>
+                  <span class="ion-ios-star"></span>
+                  <span class="ion-ios-star"></span>
+                </div>
+                <div class="float-right">
+                  <span class="rate"></span>
+                </div>
+              </div>
+            </div>
+            <!-- <a href="{{cat.categoryimage}}" class="icon image-popup d-flex justify-content-center align-items-center"> 
+              <span class="icon-expand"></span>
+             </a> -->
+          </div>
+        </div>
+      </ng-container> 
+    </div>
+    </div>
+</section>

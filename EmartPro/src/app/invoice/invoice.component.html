@@ -1,0 +1,102 @@
+<div id="content" #content>
+  <section class="ftco-counter img" id="section-counter">
+
+  <table class="table" style="border-spacing: 200px">
+    <tr>
+      <th>
+        Invoice No. :
+      </th>
+      <td>
+        <u> {{i}} </u>
+      </td>
+
+      <th>
+        EMART
+    </th>
+      <td>
+       -- Online Shoping
+      </td>
+     </tr>
+
+     <tr>
+       <th>
+         Customer Name
+       </th>
+       <td>
+         {{customer.cname}}
+       </td>
+
+       <th>
+         CUstomer Address
+       </th>
+       <td>
+         {{customer.address}}
+       </td>
+     </tr>
+     <tr>
+      <th>
+        Customer Email
+      </th>
+      <td>
+        {{customer.email}}
+      </td>
+
+      <th>
+        Customer Mobile Number
+      </th>
+      <td>
+        {{customer.mobno}}
+      </td>
+    </tr>
+
+  </table>
+
+
+  <div class="container">
+    <div class="row d-flex">	
+           
+     <table class="table" style="border-spacing: 200px">
+      <tr>
+
+        <th> 
+            Product Nam
+        </th>
+
+        <th>
+            Product Quantity
+        </th>
+
+        <th>
+            Total Amount
+        </th>
+
+      </tr>
+      <ng-container *ngFor="let cartdetail of cartlist">
+       <tr>
+          <td>
+          
+            {{cartdetail.product.name}}
+          
+          </td>
+          <td>
+            {{cartdetail.quantity}}
+          </td>
+          <td>
+            
+              {{cartdetail.amount}}
+            
+          </td>
+        </tr>
+      </ng-container> 
+      </table> 
+    </div>  
+  </div>
+  <div>
+  <h2>Total Amount = {{Total}}</h2>
+  </div>
+
+  <button (click)="pay()">PAY</button>
+</section>
+</div>
+<br>
+<br><br><br><br><br><br><br><br>

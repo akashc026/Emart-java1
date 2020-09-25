@@ -1,0 +1,46 @@
+<section class="ftco-counter img" id="section-counter">
+  <div class="container">
+    <div class="row d-flex">
+      <ng-container *ngFor="let promotional of product">	
+           
+     <table class="table" style="border-spacing: 200px">
+       <tr>
+          <td>
+            <div class="col-md-6 d-flex">
+              <div class="img d-flex align-self-stretch"><img src="{{promotional.image}}"></div>
+            </div>
+          </td>
+          <td>
+            <h2>
+            Pooduct Name : {{promotional.name}}<br>
+            Product ModelNo. : {{promotional.modelno}}<br>
+            Product Price : {{promotional.price| currency :'INR'}} <br> 
+            Product PrimePrice : {{promotional.primeprice | currency :'INR'}}<br>
+            Points : {{promotional.points | currency : 'INR'}}<br>
+          </h2>
+          </td>
+        </tr>
+       
+       <tr>
+          <td colspan="2"> 
+            <div> 
+              <h4>
+              Product Detail : {{promotional.pdetail}}<br>
+            </h4>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div align="center" style="color: blue; text-align: center;" class="nav-item">
+              <nav class="navbar navbar-expand-sm bg-light">
+              <h1><button (click)="checkLogin(promotional)" class="nav-link" >Add To Cart</button></h1>
+            </nav>
+            </div>
+          </td>
+        </tr>
+      </table> 
+    </ng-container>      
+    </div>  
+  </div>
+</section>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div class="signup-form">
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit(registrationForm)" novalidate>
+            <h2>Register</h2>
+            <p class="hint-text">Create your account. It's free and only takes a minute.</p>
+
+            <div *ngIf="registrationForm.get('cname').errors  && isSubmitted">
+              <div *ngIf="registrationForm.get('cname').hasError('required')">
+                  <span style="color: red;">Please Enter Customer Name.</span>
+              </div> 
+              <div *ngIf="registrationForm.get('cname').hasError('minlength')">
+                  <span style="color: red;">CustomerName requied atleast 3 characters.</span>
+              </div>
+              <div *ngIf="registrationForm.get('cname').hasError('maxlength')">
+                  <span style="color: red;">Customer Name requied only 30 characters.</span>
+              </div>
+              <div *ngIf="registrationForm.get('cname').hasError('pattern')">
+                  <span style="color: red;">Only characters are allowed.</span>
+              </div>
+          </div>
+          
+              Name : <input type="text" formControlName="cname" class="form-control" name="cname" placeholder="Customer Name" required="required">
+
+              <br><br>
+
+          <div *ngIf="registrationForm.get('email').errors  && isSubmitted">
+            <div *ngIf="registrationForm.get('email').hasError('required')">
+                <span style="color: red;">Please Enter Email.</span>
+            </div>
+            <div *ngIf="registrationForm.get('email').hasError('minlength')">
+                <span style="color: red;">Customer Email requied atleast 5 characters.</span>
+            </div>
+            <div *ngIf="registrationForm.get('email').hasError('maxlength')">
+                <span style="color: red;">Customer Email requied only 80 characters.</span>
+            </div>
+            <div *ngIf="registrationForm.get('cname').hasError('pattern')">
+                <span style="color: red;">Enter vaild Email"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"</span>
+            </div>
+        </div>
+        
+           Email : <input type="text" formControlName="email" class="form-control" name="email" placeholder="Email" required="required">
+        
+
+           <br><br>
+            
+        <div *ngIf="registrationForm.get('mobno').errors  && isSubmitted">
+          <div *ngIf="registrationForm.get('mobno').hasError('required')">
+              <span style="color: red;">Please Enter TelePhone.</span>
+          </div>
+          <div *ngIf="registrationForm.get('mobno').hasError('minlength')">
+              <span style="color: red;">Company TelePhone requied atleast 8 characters.</span>
+          </div>
+          <div *ngIf="registrationForm.get('mobno').hasError('maxlength')">
+              <span style="color: red;">Company TelePhone requied only 12 characters.</span>
+          </div>
+          <div *ngIf="registrationForm.get('mobno').hasError('pattern')">
+              <span style="color: red;">Enter vaild TelePhone</span>
+          </div>
+      </div>
+      
+         Mobile No:  <input type="text" formControlName="mobno" class="form-control" name="mobno" placeholder="Telephone" required="required">
+      
+         <br><br>
+
+    
+       Age :  <input type="text" formControlName="age" class="form-control" name="age" placeholder="age" required="required">
+    
+
+       <br><br>
+
+    <label>Gender: </label>
+      <select formControlName="gender">
+        <option>Select</option>
+        <option *ngFor='let g of gend'>{{g}}</option>
+      </select>
+
+      <br><br>
+      <div *ngIf="registrationForm.get('password').errors  && isSubmitted">
+        <div *ngIf="registrationForm.get('password').hasError('required')">
+            <span style="color: red;">Please Enter PASSWORD.</span>
+        </div>
+        <div *ngIf="registrationForm.get('password').hasError('minlength')">
+            <span style="color: red;">PASSWORD requied atleast 5 characters.</span>
+        </div>
+        <div *ngIf="registrationForm.get('password').hasError('maxlength')">
+            <span style="color: red;">PASSWORD requied only 12 characters.</span>
+        </div>
+    </div>
+    
+       Password : <input type="password" formControlName="password" class="form-control" name="password" placeholder="Password" required="required">
+    
+
+       <br><br>
+    
+       Address :  <input type="text" formControlName="address" placeholder="Enter Address Here.." rows="2" class="form-control" name="address" required="required">
+    
+  
+
+       <br><br>
+
+    <input type="checkbox" formControlName="primemember" id='prime' value="true" > PrimeMemberShip
+  
+
+    <br><br>
+
+  <div>
+      <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
+  </div>
+<br><br>
+  
+        <div class="text-center" style="color: blue;"><h1>Already have an account? <a [routerLink] = "['/login']">Sign in</a></h1></div>
+      </form>
+      </div><br><br><br><br><br><br>
+</body>
+</html>
